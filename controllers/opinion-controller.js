@@ -7,7 +7,7 @@ const opinionController = {};
 // Controller Methods:
 
 // Sending all the opinions to the route
-opinionController.index = () => {
+opinionController.index = (req,res) => {
   Opinion.findAll()
   .then(opinions => {
     res.json({
@@ -20,7 +20,7 @@ opinionController.index = () => {
   });
 };
 
-opinionController.show = () => {
+opinionController.show = (req,res) => {
   Opinion.findById(req.params.id)
   .then(opinion => {
     res.json({

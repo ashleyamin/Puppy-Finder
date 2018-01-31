@@ -29,24 +29,25 @@ Puppy.create = puppy => {
   return db.one(
     `
     INSERT INTO puppies
-    (name, breed, photourl, sex, description, altered, housetrained, shelternumber, op_ID, notes)
-    VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)
+    (name, breed, photourl, sex, description, altered, housetrained, shelternumber, notes)
+    VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)
     RETURNING *
   `,
-    [puppy.name, puppy.breed, puppy.photourl, puppy.sex, puppy.description, puppy.altered, puppy.housetrained, puppy.shelternumber, puppy.op_ID, puppy.notes]
+    [puppy.name, puppy.breed, puppy.photourl, puppy.sex, puppy.description, puppy.altered, puppy.housetrained, puppy.shelternumber, puppy.notes]
   );
 };
 //add a selected puppy profile to puppies table in puppy_dev database
 
-Puppy.update = (puppy, id) => {
+Puppy.update = (puppy, op_ID, id) => {
   return db.one(
     `
     UPDATE puppy SET
-     notes = $1
-    WHERE id = $2
+     notes = $1,
+     op_ID = $2,
+    WHERE id = $3
     RETURNING *
   `,
-    [puppy.notes, id]
+    [puppy.notes, puppy.op_ID, id]
   );
 };
 //edit the text area notes of a saved search in the puppies table

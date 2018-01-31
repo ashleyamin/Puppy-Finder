@@ -6,9 +6,9 @@ class Favorites extends Component {
     this.state = {
       dataLoaded: false,
       favoritesList: null,
-      opinion: null,
     }
   }
+//do we need the opinion variable in state?
 
 //makes the api call to the local database
   componentDidMount () {
@@ -17,14 +17,22 @@ class Favorites extends Component {
       this.setState({
         dataLoaded: true,
         favoritesList: res.data.data,
-        opinion: null,
       })
     })
   }
 
 //shows each favorite on the favorites page
   showFavorites () {
-
+    if(this.state.dataLoaded) {
+      return this.state.favoritesList.map(favorites => {
+        return (
+          <div className='favorites-list'>
+            <p>image placeholder</p>
+            <h2>title</h2>
+          </div>
+          )
+      })
+    }
   }
 
   render() {

@@ -7,6 +7,6 @@ const puppyFinderRouter = express.Router();
 const puppyFinderController = require('../controllers/puppy-finder-controller');
 
 // Send the API data to localhost
-puppyFinderRouter.get('/puppyfinder', puppyFinderController.search);
+puppyFinderRouter.get('/', puppyFinderController.search);
 
 module.exports = puppyFinderRouter;

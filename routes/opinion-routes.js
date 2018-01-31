@@ -7,7 +7,7 @@ const opinionRouter = express.Router();
 const opinionController = require('../controllers/opinion-controller');
 
 // Create the routes
-opinionRouter.get('/opinions', opinionController.index);
-opinionRouter.get('/opinions/:id');
+opinionRouter.get('/', opinionController.index);
+opinionRouter.get('/:id');
 
 module.exports = opinionRouter;

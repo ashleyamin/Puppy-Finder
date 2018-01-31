@@ -8,28 +8,28 @@ const puppyRouter = express.Router();
 const puppyController = require('../controllers/puppy-controller');
 //import controller methods from puppy-controller.js
 
-puppyRouter.get('/puppy', puppyController.findAll);
+puppyRouter.get('/', puppyController.findAll);
 //when the path/URL requested is '/', map to controller method findall()
 //display the users saved searches from the puppies table in puppy_dev database
 
-puppyRouter.post('/puppy',puppyController.add);
+puppyRouter.post('/',puppyController.add);
 //when the path/URL specified is '/' with HTTP method of post
 //map to controller method add()
 //create a saved searched to the puppies table in puppy_dev database
 
-puppyRouter.get('/puppy/:id', puppyController.showPuppyById);
+puppyRouter.get('/:id', puppyController.showPuppyById);
 //HTTP get request
 //path is '/:id'
 //map to controller method showPuppyById()
 //return a puppy, selected by ID, from puppies table in puppy_dev database
 
-puppyRouter.put('/puppy/:id', puppyController.edit);
+puppyRouter.put('/:id', puppyController.edit);
 //HTTP put method
 //path requested is '/:id'
 //map to controller method edit()
 //update the notes on a saved puppy, selected by ID, from puppies table in puppy_dev database
 
-puppyRouter.delete('/puppy/:id', puppyController.remove);
+puppyRouter.delete('/:id', puppyController.remove);
 //HTTP delete method
 //path is '/:id'
 //map to controller remove method()

@@ -16,7 +16,9 @@ app.get('/', (req,res) => {
 });
 
 //API route
-app.use('/api', require('./routes/puppy-routes'));
+app.use('/api/puppy', require('./routes/puppy-routes'));
+app.use('/api/opinions', require('./routes/opinions-routes'));
+app.use('/api/puppyfinder', require('./routes/puppy-finder-routes'));
 
 // Setting up the port
 app.listen(PORT, () => {

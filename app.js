@@ -15,8 +15,8 @@ app.get('/', (req,res) => {
   res.sendFile(path.join(__dirname + '/index.html'))
 });
 
-// API route
-//app.use('/api', require('./routes/puppy-routes'));
+//API route
+app.use('/api', require('./routes/puppy-routes'));
 
 // Setting up the port
 app.listen(PORT, () => {

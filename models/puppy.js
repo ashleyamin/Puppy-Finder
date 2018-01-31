@@ -12,7 +12,7 @@ const Puppy = {};
 Puppy.findAll = () => {
   return db.query(`SELECT * FROM puppies`);
 };
-//return all the saved searched from the puppies table
+//return all the saved searches from the puppies table
 
 Puppy.findByid = id => {
   return db.oneorNone(
@@ -29,11 +29,11 @@ Puppy.create = puppy => {
   return db.one(
     `
     INSERT INTO puppies
-    (name,breed,photourl,sex,description,altered,housetrained,shelternumber,op_ID,notes)
+    (name, breed, photourl, sex, description, altered, housetrained, shelternumber, op_ID, notes)
     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)
     RETURNING *
   `,
-    [puppy.name,puppy.breed,puppy.photourl,puppy.sex,puppy.description,puppy.altered,puppy.housetrained,puppy.shelternumber,puppy.op_ID,puppy.notes]
+    [puppy.name, puppy.breed, puppy.photourl, puppy.sex, puppy.description, puppy.altered, puppy.housetrained, puppy.shelternumber, puppy.op_ID, puppy.notes]
   );
 };
 //add a selected puppy profile to puppies table in puppy_dev database

@@ -18,4 +18,4 @@ Opinion.findById = (id) => {
     `, [id])
 }
 
-module.exports = Opinions;
+module.exports = Opinion;

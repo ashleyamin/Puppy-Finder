@@ -1,9 +1,15 @@
 import React, {Component} from 'react';
 
-class Footer extends Component {
+const Footer = () => {
     render() {
         return (
-            
+            <div className="footer">
+                <footer>
+                    <h2>made by 'debleyjorry</h2>
+
+                </footer>
+
+            </div>
 
         )
 

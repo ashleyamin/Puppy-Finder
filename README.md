@@ -81,7 +81,7 @@ image placeholder
 
 ## React Routes
 
-image placeholder
+![React Routes](https://trello-attachments.s3.amazonaws.com/5a6ca2635159f923e03bf7bd/5a70d12ec3c6b594e6594953/e8469eb784c0866bda8152b7a1ab333a/Image_uploaded_from_iOS_(6).jpg) 
 
 ## Architecture Diagram
 

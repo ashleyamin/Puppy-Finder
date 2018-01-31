@@ -14,6 +14,8 @@ class About extends Component {
 
         )
 
+    }
+
 }
 
 

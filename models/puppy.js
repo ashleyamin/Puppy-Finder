@@ -41,7 +41,7 @@ Puppy.create = puppy => {
 Puppy.update = (puppy, op_ID, id) => {
   return db.one(
     `
-    UPDATE puppy SET
+    UPDATE puppies SET
      notes = $1,
      op_ID = $2,
     WHERE id = $3

@@ -118,7 +118,7 @@ class Search extends Component {
     // Sends the breed and zipcode to the controller
     axios({
       method: 'POST',
-      url: ('/api/puppyfinder'),
+      url: '/api/puppyfinder',
       data: {
         breed: this.state.breed,
         zipcode: this.state.zipcode,
@@ -126,10 +126,11 @@ class Search extends Component {
     })
     // Gets back the puppy data and sticks it into
     .then(puppyData => {
-      this.setState({
+      console.log(puppyData)
+/*      this.setState({
         puppiesLoaded: true,
         puppyData: puppyData,
-      })
+      })*/
     })
     .catch(err => {
       console.log('puppyfinder call error', err);
@@ -143,6 +144,7 @@ class Search extends Component {
     });
   }
   render() {
+    console.log('inside render', this.state)
     // renders the page normally
     return(
       <div className="search">

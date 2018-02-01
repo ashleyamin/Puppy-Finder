@@ -8,6 +8,7 @@ class SingleFavorite extends Component {
         super();
         this.state = {
             name: '',
+            breed: '',
             photourl: '',
             sex: '',
             description: '',
@@ -26,6 +27,7 @@ class SingleFavorite extends Component {
             .then(res => {
                 const favorite = res.data.data;
 
+                this.setState({
                 name: favorite.name,
                 image: favorite.photourl,
                 sex: favorite.sex,
@@ -34,6 +36,8 @@ class SingleFavorite extends Component {
                 opinion: favorite.op_id,
                 shelter: favorite.shelternumber,
                 notes: favorite.notes
+
+                })
 
             })
             .catch(err => console.log(err));
@@ -96,16 +100,16 @@ class SingleFavorite extends Component {
 
                     </select>
 
-                    // within the same form add a label notes for a textarea for comments and details with Save/Submit button
+                    {/* within the same form add a label notes for a textarea for comments and details with Save/Submit button */}
                     <textarea value={this.state.notes} name="notes">
 
 
                     </textarea>
 
-                    // Button for remove(delete from favorites table & data from {notes and 'rating' table})
+                    {/* Button for remove(delete from favorites table & data from {notes and 'rating' table}) */}
                     <button onClick={handleFormSubmit(event)}>Submit</button>
 
-                    // Button for remove(delete from favorites table & data from {notes and 'rating' table})
+                    {/* Button for remove(delete from favorites table & data from {notes and 'rating' table}) */}
                     <button onClick={remoteFavorite()}>Delete</button>
                     {this.state.fireRedirect ? <Redirect push to={`/favorites`} /> : ''}
 

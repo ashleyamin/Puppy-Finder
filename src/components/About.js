@@ -1,7 +1,6 @@
 import React from 'react';
 
 const About = () => {
-    render() {
         return (
             <div className="About">
                 <h2>About</h2>
@@ -13,8 +12,6 @@ const About = () => {
             </div>
 
         )
-
-    }
 
 }
 

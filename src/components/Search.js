@@ -1,17 +1,18 @@
 // import things
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import Results from './components/Results';
+import axios from 'axios';
+import Results from './Results';
 
 // Instantiate the Search class
 class Search extends Component {
   constructor() {
     super();
     this.state = {
-      breed: null,
-      zipcode: null,
+      breed: '',
+      zipcode: '',
       puppiesLoaded: false,
-      puppyData: null,
+      puppyData: null
+
     };
     // bind the functions
     this.handleChange = this.handleChange.bind(this);
@@ -149,11 +150,12 @@ class Search extends Component {
             We're passing down the data we got from the back-end as props for results to render.
             If there's no data from the API the search form will render.
             The button has an onCLick event to have a new search by resetting state */}
+          <h1>Hello mates..!</h1>
         {(this.state.puppiesLoaded) ?
         (<Results puppies={this.state.puppyData} />,
         <button onClick={this.newSearch}>New Search</button>) :
-        this.renderSearch }
-      }
+        this.renderSearch() }
+
       </div>
       )
   }

@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import SingleResult from './SingleResult';
+
 //bring in Component module from react library
-import axios from 'axios';
 //Promise based HTTP client for the browser and node.js
 //this is how you make calls from node.js
 //transforms request and response data
 //transforms JSON
-import SingleResult from './components/SingleResult';
+
 //bring in SingleResult component
 //define a class based component
 //all class based components must render and return
@@ -29,7 +30,7 @@ class Results extends Component {
    return this.props.puppies.map(puppy,index => {
    const theId = this.props.puppies[index];
       return(
-        <Puppy key={puppy.theId} puppy={puppy} />
+        <SingleResult key={puppy.theId} puppy={puppy} />
         );
       });
     }

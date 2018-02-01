@@ -84,7 +84,7 @@ class SingleResult extends Component {
           <p>{this.state.housetrained}</p>
           <p>{this.state.shelternumber}</p>
          <div className='links'>
-          <button onClick={this.addPuppy}}>Save {this.state.name}</button>
+          <button onClick={this.addPuppy}>Save {this.state.name}</button>
           {this.state.fireRedirect
            ? <Redirect push to='/' /> : ''}
         </div>

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 const Footer = () => {
-    render() {
+
         return (
             <div className="footer">
                 <footer>
@@ -12,8 +12,6 @@ const Footer = () => {
             </div>
 
         )
-
-    }
 
 }
 

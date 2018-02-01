@@ -24,8 +24,8 @@ class Favorites extends Component {
     .then(axios.spread(function (puppy, opinion) {
       this.setState({
         dataLoaded: true,
-        favoritesData: res.data.data,
-        opinionsData: res.data.data
+        favoritesData: puppy,
+        opinionsData: opinion
       })
     }))
   }

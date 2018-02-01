@@ -1,35 +1,40 @@
 import React, {Component} from 'react';
+import axios from 'axios';
+import Favorite from './Favorite';
 
 class Favorites extends Component {
   constructor () {
     super();
     this.state = {
       dataLoaded: false,
-      favoritesList: null,
+      favoritesData: null,
+      opinionsData: null,
     }
   }
-//do we need the opinion variable in state?
 
-//makes the api call to the local database
+//makes the api call to the local database for both tables simultaneously
+//http://codeheaven.io/how-to-use-axios-as-your-http-client/
+//let favorites = puppy.data.concat(opinion.data);
   componentDidMount () {
-    axios.get ('/somewhere')
-    .then(res => {
+    axios.all ([
+      axios.get('/api/puppy'),
+      axios.get('/api/opinion')
+      ])
+    .then(axios.spread(function (puppy, opinion) {
       this.setState({
         dataLoaded: true,
-        favoritesList: res.data.data,
+        favoritesData: res.data.data,
+        opinionsData: res.data.data
       })
-    })
+    }))
   }
 
 //shows each favorite on the favorites page
   showFavorites () {
     if(this.state.dataLoaded) {
-      return this.state.favoritesList.map(favorites => {
+      return this.state.favoritesData.map(favorite => {
         return (
-          <div className='favorites-list'>
-            <p>image placeholder</p>
-            <h2>title</h2>
-          </div>
+          <Favorite key={favorite.id} favorite={favorite} />
           )
       })
     }
@@ -37,11 +42,10 @@ class Favorites extends Component {
 
   render() {
     return(
-      <div className='favorites'>
-        <h1>All of my favorite puppies</h1>
+      <div className='favorite-list'>
         {this.showFavorites()}
       </div>
-      )
+    )
   }
 
 }

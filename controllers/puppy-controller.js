@@ -47,7 +47,6 @@ puppyController.add = (req, res) => {
       altered: req.body.altered,
       housetrained: req.body.housetrained,
       shelternumber: req.body.shelternumber,
-      op_ID: req.body.op_ID,
       notes: req.body.notes,
     })
       .then(puppy => {
@@ -64,14 +63,6 @@ puppyController.add = (req, res) => {
 
 puppyController.edit = (req, res) => {
   Puppy.update({
-      name: req.body.name,
-      breed: req.body.breeed,
-      photourl: req.body.photourl,
-      sex: req.body.sex,
-      description: req.body.description,
-      altered: req.body.altered,
-      housetrained: req.body.housetrained,
-      shelternumber: req.body.shelternumber,
       op_ID: req.body.op_ID,
       notes: req.body.notes,
     },

@@ -1,39 +1,53 @@
+//import react, axios, and favorite.js
 import React, {Component} from 'react';
+import axios from 'axios';
+import Favorite from './Favorite';
 
 class Favorites extends Component {
   constructor () {
     super();
     this.state = {
       dataLoaded: false,
-      favoritesList: null,
-      opinion: null,
+      favoritesData: null,
+      opinionsData: null,
     }
   }
 
-//makes the api call to the local database
+//makes the api call to the local database for both tables simultaneously
+//http://codeheaven.io/how-to-use-axios-as-your-http-client/
+//let favorites = puppy.data.concat(opinion.data);
   componentDidMount () {
-    axios.get ('/somewhere')
-    .then(res => {
+    axios.all ([
+      axios.get('/api/puppy'),
+      axios.get('/api/opinion')
+      ])
+    .then(axios.spread(function (puppy, opinion) {
       this.setState({
         dataLoaded: true,
-        favoritesList: res.data.data,
-        opinion: null,
+        favoritesData: puppy,
+        opinionsData: opinion
       })
-    })
+    }))
   }
 
 //shows each favorite on the favorites page
   showFavorites () {
-
+    if(this.state.dataLoaded) {
+      return this.state.favoritesData.map(favorite => {
+        return (
+          <Favorite key={favorite.id} favorite={favorite} />
+          )
+      })
+    }
   }
 
+//render function that calls the showFavorites function
   render() {
     return(
-      <div className='favorites'>
-        <h1>All of my favorite puppies</h1>
+      <div className='favorite-list'>
         {this.showFavorites()}
       </div>
-      )
+    )
   }
 
 }

@@ -23,5 +23,4 @@ app.use('/api/puppyfinder', require('./routes/puppy-finder-routes'));
 // Setting up the port
 app.listen(PORT, () => {
   console.log(`Live on port ${PORT} but also it's the Shrek movie`);
-
 });

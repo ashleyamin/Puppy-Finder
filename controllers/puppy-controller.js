@@ -40,7 +40,7 @@ puppyController.showPuppyById = (req, res) => {
 puppyController.add = (req, res) => {
     Puppy.create({
       name: req.body.name,
-      breed: req.body.breeed,
+      breed: req.body.breed,
       photourl: req.body.photourl,
       sex: req.body.sex,
       description: req.body.description,

@@ -1,3 +1,4 @@
+//import react, axios, and favorite.js
 import React, {Component} from 'react';
 import axios from 'axios';
 import Favorite from './Favorite';
@@ -40,6 +41,7 @@ class Favorites extends Component {
     }
   }
 
+//render function that calls the showFavorites function
   render() {
     return(
       <div className='favorite-list'>

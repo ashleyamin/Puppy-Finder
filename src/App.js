@@ -15,15 +15,14 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-
                 <Header />
                 <Router>
-                    <Route exact path="/" {Search} />
-                    <Route exact path="/breed" {Results} />
-                    <Route exact path="/breed/:id" {SingleResult} />
-                    <Route exact path="/favorites" {Favorites} />
-                    <Route exact path="/about" {SingleFavorite} />
-                    <Route exact path="/about" {About} />
+                    <Route exact path="/" component={Search} />
+                    <Route exact path="/breed" component={Results} />
+                    <Route exact path="/breed/:id" component={SingleResult} />
+                    <Route exact path="/favorites" component={Favorites} />
+                    <Route exact path="/favorites/:id" component={SingleFavorite} />
+                    <Route exact path="/about" component={About} />
 
                 </Router>
                 <Footer />

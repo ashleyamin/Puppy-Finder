@@ -103,7 +103,8 @@ class SingleFavorite extends Component {
 
         return (
             <div className="SingleFavorite">
-            { this.state.dataLoaded ? this.showSingleFavorite() : '' }
+              { this.state.dataLoaded ? this.showSingleFavorite() : '' }
+              <button><Link to="/favorites">Back to Your Favorites</Link></button>
             </div>
 
         )

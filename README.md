@@ -1,25 +1,25 @@
 # Project Overview
 
-#Puppy Finder App
+# Puppy Finder App
 A CRUD App, using React and utilizing the Pet Finder API. A user can search for dogs to adopt by breed and zipcode. When the user finds a dog they may like, they can save it to a favorites list and edit their interest in the dog, add notes and/or remove from the puppy from the favorites list.
 
 ## Project Schedule
 
 This schedule will be used to keep track of our progress throughout the week and align with our expectations.  
 
-|  Day | Deliverable | Approval From Squad Lead
+|  Day | Deliverable | Approval From Squad Lead |
 |---|---| ---|
-|Day 1: Tue| Project Idea, Wireframes, Project Setup, Webpack|
-|Day 2: Wed| Set up Database, Routes and 3rd Party API|
-|Day 3: Thurs| Basic Clickable Model |
-|Day 4: Fri| Working Prototype and Styling|
+|Day 1: Tue| Project Idea, Wireframes, Project Setup, Webpack| Complete |
+|Day 2: Wed| Set up Database, Routes and 3rd Party API| Complete |
+|Day 3: Thurs| Basic Clickable Model | Complete |
+|Day 4: Fri| Working Prototype and Styling| Complete |
 |Day 5: Sat| Additional Styling and Deploy |
 |Day 6: Sun| App Completed/Slides |
 |Day 7: Mon| Project Presentations |
 
 # Trello Board
 
-image placeholder
+![Trello Screenshot](https://i.imgur.com/qlb13nZ.png)
 https://trello.com/b/dYEDr2VX
 
 ## Priority Matrix
@@ -43,7 +43,17 @@ https://trello.com/b/dYEDr2VX
 
 ## Wireframes
 
-image placeholder
+### Search and Results
+![Search and Results](https://trello-attachments.s3.amazonaws.com/5a6ca2635159f923e03bf7bd/5a70e3f3e0e7939fd3e42caf/ec9933335fd7762047fec09499549855/Image_uploaded_from_iOS_(11).jpg) 
+
+### Single Result and Favorites
+![Single Result and Favorites](https://trello-attachments.s3.amazonaws.com/5a6ca2635159f923e03bf7bd/5a70e44eaa3e35293659e6a3/0f1b446b6ea7af74178d5fa4492c7781/Image_uploaded_from_iOS_(12).jpg) 
+
+### Favorites and Single Favorites
+![Favorites and Single Favorites](https://trello-attachments.s3.amazonaws.com/5a6ca2635159f923e03bf7bd/5a70e4a8443c23f268225993/6b554b2d77d92c7b74d07d25787655ae/Image_uploaded_from_iOS_(13).jpg) 
+
+### About
+![About](https://trello-attachments.s3.amazonaws.com/5a6ca2635159f923e03bf7bd/5a70d008e2861fc615c26338/ed51182eebd0c4ba38c79d247586ece2/Image_uploaded_from_iOS_(3).jpg) 
 
 ## Table Structures
     

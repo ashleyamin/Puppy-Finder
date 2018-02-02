@@ -8,7 +8,7 @@ class Search extends Component {
   constructor() {
     super();
     this.state = {
-      breed: '',
+      breed: 'Poodle',
       zipcode: '',
       puppiesLoaded: false,
       puppyData: null
@@ -99,7 +99,7 @@ class Search extends Component {
             value={this.state.zipcode}
             onChange={this.handleChange}
           />
-          <input type="submit" value="SEARCH HOOMAN" />
+          <input type="submit" value="Search for Puppers" />
         </form>
       </div>
     )

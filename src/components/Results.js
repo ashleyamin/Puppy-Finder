@@ -25,19 +25,39 @@ import SingleResult from './SingleResult';
 class Results extends Component {
   constructor (props) {
   super(props);
-}
- renderPuppies() {
-   return this.props.puppies.map(puppy,index => {
-   const theId = this.props.puppies[index];
-      return(
-        <SingleResult key={puppy.theId} puppy={puppy} />
-        );
-      });
-    }
+  this.state = {
+    meetPuppy: false,
+    puppyData: null,
+    puppyList: true,
+  }
+  this.renderSingleResult = this.renderSingleResult.bind(this);
+  }
+  renderSingleResult(puppy) {
+    this.setState({
+      meetPuppy: true,
+      puppyData: puppy,
+      puppyList: false,
+    })
+  }
+  renderPuppies() {
+  console.log(this.props.puppies);
+   return this.props.puppies.map((puppy,index) => {
+    return (
+      <div key={puppy.name.$t} className="testresult">
+        <h3>TestResult Div</h3>
+        <h3>{puppy.name.$t}</h3>
+        <img src={puppy.media.photos.photo[0].$t} />
+        <button onClick={() => this.renderSingleResult(puppy)}>Meet {puppy.name.$t}</button>
+      </div>
+    )
+    })
+  }
     render() {
-      return(
+      console.log(this.state);
+      return (
         <div className='results'>
-        {this.renderPuppies()}
+          {this.state.puppyList ? this.renderPuppies() : ''}
+          {this.state.meetPuppy ? <SingleResult puppy={this.state.puppyData} /> : ''}
         </div>
       )
     }

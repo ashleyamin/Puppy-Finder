@@ -21,7 +21,7 @@ class Search extends Component {
   }
   // render each breed option with a photo. placeholder right now.
   renderSearch() {
-    return(
+    return (
       <div className="searchform">
       {/* Name and photo of each of the breeds you can search for */}
         <div className="wrapper">
@@ -127,10 +127,10 @@ class Search extends Component {
     // Gets back the puppy data and sticks it into
     .then(puppyData => {
       console.log(puppyData)
-/*      this.setState({
+        this.setState({
         puppiesLoaded: true,
-        puppyData: puppyData,
-      })*/
+        puppyData: puppyData.data.data.pet,
+      })
     })
     .catch(err => {
       console.log('puppyfinder call error', err);
@@ -146,16 +146,16 @@ class Search extends Component {
   render() {
     console.log('inside render', this.state)
     // renders the page normally
-    return(
+    return (
       <div className="search">
         {/* Conditional rendering. If we loaded data from the puppy finder API the Results component will render.
             We're passing down the data we got from the back-end as props for results to render.
             If there's no data from the API the search form will render.
             The button has an onCLick event to have a new search by resetting state */}
           <h1>Hello mates..!</h1>
-        {(this.state.puppiesLoaded) ?
-        (<Results puppies={this.state.puppyData} />,
-        <button onClick={this.newSearch}>New Search</button>) :
+        {this.state.puppiesLoaded ?
+        <div><Results puppies={this.state.puppyData} />
+        <button onClick={this.newSearch}>New Search</button></div> :
         this.renderSearch() }
 
       </div>

@@ -26,51 +26,51 @@ class Search extends Component {
       {/* Name and photo of each of the breeds you can search for */}
         <div className="wrapper">
           <div className="breeds">
-            <img src="#" alt="Poodle" />
+            <img src="https://i.imgur.com/KQpe37F.jpg" alt="Poodle" />
             <p>Poodle</p>
           </div>
           <div className="breeds">
-            <img src="#" alt="Beagle" />
+            <img src="https://i.imgur.com/d37Hhlm.jpg" alt="Beagle" />
             <p>Beagle</p>
           </div>
           <div className="breeds">
-            <img src="#" alt="Dalmatian" />
+            <img src="https://i.imgur.com/6cAaa3B.jpg" alt="Dalmatian" />
             <p>Dalmatian</p>
           </div>
           <div className="breeds">
-            <img src="#" alt="Miniature Schnauzer" />
+            <img src="https://i.imgur.com/xINvtOj.jpg" alt="Miniature Schnauzer" />
             <p>Miniature Schnauzer</p>
           </div>
           <div className="breeds">
-            <img src="#" alt="Husky" />
+            <img src="https://i.imgur.com/BrXIenJ.jpg" alt="Husky" />
             <p>Husky</p>
           </div>
           <div className="breeds">
-            <img src="#" alt="Labrador Retriever" />
+            <img src="https://i.imgur.com/M0joMkY.jpg" alt="Labrador Retriever" />
             <p>Labrador Retriever</p>
           </div>
           <div className="breeds">
-            <img src="#" alt="Great Dane" />
+            <img src="https://i.imgur.com/DOzkn6V.jpg" alt="Great Dane" />
             <p>Great Dane</p>
           </div>
           <div className="breeds">
-            <img src="#" alt="German Shepherd" />
+            <img src="https://i.imgur.com/SPQQya4.jpg" alt="German Shepherd" />
             <p>German Shepherd</p>
           </div>
           <div className="breeds">
-            <img src="#" alt="Chihuahua" />
+            <img src="https://i.imgur.com/zrCFXpK.jpg" alt="Chihuahua" />
             <p>Chihuahua</p>
           </div>
           <div className="breeds">
-            <img src="#" alt="Golden Retriever" />
+            <img src="https://i.imgur.com/AZzKaHV.jpg" alt="Golden Retriever" />
             <p>Golden Retriever</p>
           </div>
           <div className="breeds">
-            <img src="#" alt="Corgi" />
+            <img src="https://i.imgur.com/VuRQ9LH.jpg" alt="Corgi" />
             <p>Corgi</p>
           </div>
           <div className="breeds">
-            <img src="#" alt="Shiba Inu" />
+            <img src="https://i.imgur.com/dGRsUSx.jpg" alt="Shiba Inu" />
             <p>Shiba Inu</p>
           </div>
         </div>

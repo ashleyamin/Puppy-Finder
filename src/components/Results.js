@@ -31,6 +31,7 @@ class Results extends Component {
     puppyList: true,
   }
   this.renderSingleResult = this.renderSingleResult.bind(this);
+  this.backToSearch = this.backToSearch.bind(this);
   }
   renderSingleResult(puppy) {
     this.setState({
@@ -44,7 +45,6 @@ class Results extends Component {
    return this.props.puppies.map((puppy,index) => {
     return (
       <div key={puppy.name.$t} className="testresult">
-        <h3>TestResult Div</h3>
         <h3>{puppy.name.$t}</h3>
         <img src={puppy.media.photos.photo[0].$t} />
         <button onClick={() => this.renderSingleResult(puppy)}>Meet {puppy.name.$t}</button>
@@ -52,12 +52,19 @@ class Results extends Component {
     )
     })
   }
+  backToSearch() {
+    this.setState({
+      meetPuppy: false,
+      puppyData: null,
+      puppyList: true,
+    })
+  }
     render() {
       console.log(this.state);
       return (
         <div className='results'>
-          {this.state.puppyList ? this.renderPuppies() : ''}
-          {this.state.meetPuppy ? <SingleResult puppy={this.state.puppyData} /> : ''}
+          {this.state.puppyList ? <div><h2>Look at all the cute puppies!</h2> {this.renderPuppies()}</div> : ''}
+          {this.state.meetPuppy ? <div><SingleResult puppy={this.state.puppyData} /><button onClick={this.backToSearch}>Back To Results</button></div> : ''}
         </div>
       )
     }

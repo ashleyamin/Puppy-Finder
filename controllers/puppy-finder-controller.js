@@ -6,7 +6,7 @@ const puppyFinderController = {};
 puppyFinderController.search = (req,res) => {
   axios({
     method: 'GET',
-    url: (`https://api.petfinder.com/pet.find?key=2a7149beb4237dc3dc4a3123d808f533&breed=${req.body.breed}&location=${req.body.zipcode}&count=2&format=json`),
+    url: (`https://api.petfinder.com/pet.find?key=${process.env.API_KEY}&breed=${req.body.breed}&location=${req.body.zipcode}&count=12&format=json`),
   })
   .then(allTheDogs => {
     console.log(allTheDogs.data.petfinder.pets)

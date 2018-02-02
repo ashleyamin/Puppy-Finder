@@ -23,6 +23,7 @@ class Search extends Component {
   renderSearch() {
     return (
       <div className="searchform">
+      <h1>Wanna find some puppies?</h1>
       {/* Name and photo of each of the breeds you can search for */}
         <div className="wrapper">
           <div className="breeds">
@@ -152,7 +153,6 @@ class Search extends Component {
             We're passing down the data we got from the back-end as props for results to render.
             If there's no data from the API the search form will render.
             The button has an onCLick event to have a new search by resetting state */}
-          <h1>Hello mates..!</h1>
         {this.state.puppiesLoaded ?
         <div><Results puppies={this.state.puppyData} />
         <button onClick={this.newSearch}>New Search</button></div> :

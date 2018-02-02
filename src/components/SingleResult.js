@@ -23,28 +23,18 @@ class SingleResult extends Component {
   constructor(props){
     super(props);
     this.state = {
-      name: this.props.puppy.name,
-      breed: this.props.puppy.breed,
-      photourl: this.props.puppy.photourl,
-      sex: this.props.puppy.sex,
-      description: this.props.puppy.description,
-      altered: this.props.puppy.altered,
-      housetrained: this.props.puppy.housetrained,
-      shelternumber: this.props.puppy.shelternumber,
-      notes: this.props.puppy.notes,
+      name: this.props.puppy.name.$t,
+      // breed: this.props.puppy.breed,
+      // photourl: this.props.puppy.photourl,
+      // sex: this.props.puppy.sex,
+      // description: this.props.puppy.description,
+      // altered: this.props.puppy.altered,
+      // housetrained: this.props.puppy.housetrained,
+      // shelternumber: this.props.puppy.shelternumber,
       fireRedirect: false
     }
     this.addPuppy = this.addPuppy.bind(this)
    }
-//lifecycle method
-//make a get request with axios
-//return the selected puppy profile by id
-
-//follows lifecycle method
-//if the user selects this puppy to save to favorites, execute
-//call axios to make a post request
-//redirect the user back to results page afterwards
-//update state with setState
 
   addPuppy() {
     axios.post('/api/puppy', {
@@ -73,22 +63,20 @@ class SingleResult extends Component {
       return(
         <div className='inner'>
           <div className='img'>
-            <img src={this.state.url} alt={this.state.name}/>
+            {/* <img src={this.state.url} alt={this.state.name}/> */}
           </div>
         <div className='info'>
-          <h4 className='breed'>{this.state.breed}</h4>
+          {/* <h4 className='breed'>{this.state.breed}</h4> */}
           <h1>{this.state.name}</h1>
-          <p>{this.state.description}</p>
-          <p>{this.state.sex}</p>
-          <p>{this.state.altered}</p>
-          <p>{this.state.housetrained}</p>
-          <p>{this.state.shelternumber}</p>
-         <div className='links'>
-          <button onClick={this.addPuppy}>Save {this.state.name}</button>
-          {this.state.fireRedirect
-           ? <Redirect push to='/' /> : ''}
-        </div>
-      </div>
+          {/* <p>{this.state.description}</p>
+                    <p>{this.state.sex}</p>
+                    <p>{this.state.altered}</p>
+                    <p>{this.state.housetrained}</p>
+                    <p>{this.state.shelternumber}</p>
+                   <div className='links'>
+                    <button onClick={this.addPuppy}>Save {this.state.name}</button>
+                  </div> */}
+                </div>
     </div>
   )
   }
@@ -96,6 +84,7 @@ class SingleResult extends Component {
 //this calls renderFetchPuppy
 //execute when page has loaded
    render(){
+    console.log('rendering singleresult');
      return(
        <div className="singleresult">
        {this.renderFetchPuppy()}

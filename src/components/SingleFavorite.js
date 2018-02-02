@@ -11,7 +11,7 @@ class SingleFavorite extends Component {
           puppyData: null,
           opinionsData: null,
           notes: '',
-          op_Id: null,
+          op_Id: 1,
           fireRedirect: false,
         }
         this.handleFormChange = this.handleFormChange.bind(this);
@@ -28,6 +28,8 @@ class SingleFavorite extends Component {
         dataLoaded: true,
         puppyData: puppy.data.data,
         opinionsData: opinions.data.data,
+        notes: puppy.data.data.notes,
+        op_Id: puppy.data.data.op_id,
       })
       console.log(this.state.puppyData);
     }))
@@ -65,20 +67,20 @@ class SingleFavorite extends Component {
             .then(res => {
                 this.setState({
                     fireRedirect:true
-
                 })
-
             })
             .catch(err => { console.log(err)})
-
     }
     showSingleFavorite() {
       return(
               <div className="singlefave">
-                <img src={this.state.puppyData.photourl} />
-                <h2>{this.state.puppyData.name}</h2>
+                <div className="solopupper">
+                  <img src={this.state.puppyData.photourl} />
+                  <h2>{this.state.puppyData.name}</h2>
+                  <p>{this.state.puppyData.description}</p>
+                </div>
                 <form onSubmit={this.handleFormSubmit}>
-                    <select name="op_Id" onChange={this.handleFormChange}>
+                    <select name="op_Id" value={this.state.op_Id} onChange={this.handleFormChange}>
                       <option value="1">Good Dog</option>
                       <option value="2">Great Dog</option>
                       <option value="3">Best Dog</option>

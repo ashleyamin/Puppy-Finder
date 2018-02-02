@@ -23,7 +23,7 @@ puppyRouter.get('/:id', puppyController.showPuppyById);
 //map to controller method showPuppyById()
 //return a puppy, selected by ID, from puppies table in puppy_dev database
 
-puppyRouter.put('/:id', puppyController.edit);
+puppyRouter.post('/:id', puppyController.edit);
 //HTTP put method
 //path requested is '/:id'
 //map to controller method edit()

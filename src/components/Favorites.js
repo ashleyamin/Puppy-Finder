@@ -17,25 +17,17 @@ class Favorites extends Component {
 //http://codeheaven.io/how-to-use-axios-as-your-http-client/
 //let favorites = puppy.data.concat(opinion.data);
   componentDidMount () {
-    // axios.all ([
-    //   axios.get('/api/puppy'),
-    //   axios.get('/api/opinions')
-    //   ])
-    // .then(axios.spread(function (puppy, opinion) {
-    //   this.setState({
-    //     dataLoaded: true,
-    //     favoritesData: puppy,
-    //     opinionsData: opinion
-    //   })
-    // }))
-    axios.get('/api/puppy')
-    .then(puppies => {
-      console.log(puppies);
+    axios.all ([
+      axios.get('/api/puppy'),
+      axios.get('/api/opinions')
+      ])
+    .then(axios.spread((puppies, opinions) => {
       this.setState({
         dataLoaded: true,
         favoritesData: puppies.data.data,
+        opinionsData: opinions.data.data,
       })
-    })
+    }))
     .catch(err => {
       console.log('inside favorites list err', err);
     })
@@ -56,6 +48,7 @@ class Favorites extends Component {
 
 //render function that calls the showFavorites function
   render() {
+    console.log('STATE HAS BEEN CALCULATED TO BE', this.state)
     return(
       <div className='favorite-list'>
         {this.showFavorites()}

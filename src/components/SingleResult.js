@@ -25,7 +25,7 @@ class SingleResult extends Component {
     this.state = {
       name: this.props.puppy.name.$t,
       breed: this.props.puppy.breeds.breed.$t,
-      photourl: this.props.puppy.media.photos.photo[3].$t,
+      photourl: this.props.puppy.media.photos.photo[2].$t,
       sex: this.props.puppy.sex.$t,
       description: this.props.puppy.description.$t,
       // altered: this.props.puppy.altered,

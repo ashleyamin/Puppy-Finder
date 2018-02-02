@@ -94,7 +94,7 @@ class SingleFavorite extends Component {
 
                     {/* Button for remove(delete from favorites table & data from {notes and 'rating' table}) */}
                 </form>
-                <button onClick={this.removeFavorite}>Delete</button>
+                <button onClick={this.removeFavorite}>Remove From List</button>
                 {this.state.fireRedirect ? <Redirect push to={`/favorites`} /> : ''}
               </div>
         )

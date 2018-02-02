@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "Unit 3 Group Project - CRUD App, using React and utilizing the Pet Finder API",
   "main": "app.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "build": "webpack --watch",
-      "start": "nodemon app.js"
-    },
-    "repository": {
-      "type": "git",
-      "url": "https://git.generalassemb.ly/DebleyJorry/puppy-love-app.git"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --watch",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.generalassemb.ly/DebleyJorry/puppy-love-app.git"
   },
   "author": "",
   "license": "ISC",
@@ -27,6 +27,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "body-parser": "^1.18.2",
+    "dotenv": "^5.0.0",
     "express": "^4.16.2",
     "pg-promise": "^7.4.1",
     "react": "^16.2.0",

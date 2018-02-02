@@ -8,7 +8,7 @@ CREATE TABLE puppies(
   breed VARCHAR(255),
   photourl VARCHAR(255),
   sex VARCHAR(255),
-  description VARCHAR(255),
+  description TEXT,
   altered VARCHAR(255),
   housetrained VARCHAR(255),
   shelternumber VARCHAR(255),

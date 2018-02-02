@@ -24,10 +24,10 @@ class SingleResult extends Component {
     super(props);
     this.state = {
       name: this.props.puppy.name.$t,
-      // breed: this.props.puppy.breed,
-      // photourl: this.props.puppy.photourl,
-      // sex: this.props.puppy.sex,
-      // description: this.props.puppy.description,
+      breed: this.props.puppy.breeds.breed.$t,
+      photourl: this.props.puppy.media.photos.photo[0].$t,
+      sex: this.props.puppy.sex.$t,
+      description: this.props.puppy.description.$t,
       // altered: this.props.puppy.altered,
       // housetrained: this.props.puppy.housetrained,
       // shelternumber: this.props.puppy.shelternumber,
@@ -38,15 +38,15 @@ class SingleResult extends Component {
 
   addPuppy() {
     axios.post('/api/puppy', {
-      name: this.props.puppy.name,
-      breed: this.props.puppy.breed,
-      photourl: this.props.puppy.photourl,
-      sex: this.props.puppy.sex,
-      description: this.props.puppy.description,
-      altered: this.props.puppy.altered,
-      housetrained: this.props.puppy.housetrained,
-      shelternumber: this.props.puppy.shelternumber,
-      notes: this.props.puppy.notes,
+      name: this.state.name,
+      breed: this.state.breed,
+      photourl: this.state.photourl,
+      sex: this.state.sex,
+      description: this.state.description,
+      // altered: this.props.puppy.altered,
+      // housetrained: this.props.puppy.housetrained,
+      // shelternumber: this.props.puppy.shelternumber,
+      // notes: this.props.puppy.notes,
    })
   .then(res => {
     console.log('successfully posted puppy :)', res)
@@ -63,22 +63,22 @@ class SingleResult extends Component {
       return(
         <div className='inner'>
           <div className='img'>
-            {/* <img src={this.state.url} alt={this.state.name}/> */}
+            <img src={this.state.photourl} alt={this.state.name}/>
           </div>
-        <div className='info'>
-          {/* <h4 className='breed'>{this.state.breed}</h4> */}
-          <h1>{this.state.name}</h1>
-          {/* <p>{this.state.description}</p>
-                    <p>{this.state.sex}</p>
-                    <p>{this.state.altered}</p>
-                    <p>{this.state.housetrained}</p>
-                    <p>{this.state.shelternumber}</p>
-                   <div className='links'>
-                    <button onClick={this.addPuppy}>Save {this.state.name}</button>
-                  </div> */}
-                </div>
-    </div>
-  )
+          <div className='info'>
+            <h4 className='breed'>{this.state.breed}</h4>
+            <h1>My name is {this.state.name}</h1>
+            <p>{this.state.description}</p>
+            <p>Sex: {this.state.sex}</p>
+            {/* <p>{this.state.altered}</p>
+            <p>{this.state.housetrained}</p>
+            <p>{this.state.shelternumber}</p> */}
+            <div className='links'>
+              <button onClick={this.addPuppy}>Save {this.state.name}</button>
+            </div>
+          </div>
+        </div>
+      )
   }
 //all class based components must render and return
 //this calls renderFetchPuppy

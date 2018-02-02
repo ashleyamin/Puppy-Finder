@@ -14,8 +14,8 @@ Puppy.findAll = () => {
 };
 //return all the saved searches from the puppies table
 
-Puppy.findByid = id => {
-  return db.oneorNone(
+Puppy.findById = id => {
+  return db.oneOrNone(
     `
      SELECT * FROM puppies
      WHERE id = $1
@@ -38,16 +38,16 @@ Puppy.create = puppy => {
 };
 //add a selected puppy profile to puppies table in puppy_dev database
 
-Puppy.update = (puppy, op_ID, id) => {
+Puppy.update = (puppy) => {
   return db.one(
     `
     UPDATE puppies SET
      notes = $1,
-     op_ID = $2,
+     op_ID = $2
     WHERE id = $3
     RETURNING *
   `,
-    [puppy.notes, puppy.op_ID, id]
+    [puppy.notes, puppy.op_ID, puppy.id]
   );
 };
 //edit the text area notes of a saved search in the puppies table

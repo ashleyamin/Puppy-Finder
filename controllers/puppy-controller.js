@@ -63,10 +63,10 @@ puppyController.add = (req, res) => {
 
 puppyController.edit = (req, res) => {
   Puppy.update({
+      id: req.body.id,
       op_ID: req.body.op_ID,
       notes: req.body.notes,
-    },
-      req.params.id,
+    }
   )
       .then(puppy => {
         res.json({

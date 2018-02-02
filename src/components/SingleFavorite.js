@@ -7,66 +7,61 @@ class SingleFavorite extends Component {
     constructor() {
         super();
         this.state = {
-            name: '',
-            breed: '',
-            photourl: '',
-            sex: '',
-            description: '',
-            altered: '',
-            housetrained: '',
-            shelternumber: '',
-            op_id: '',
-            notes: ''
-
+          dataLoaded: false,
+          puppyData: null,
+          opinionsData: null,
+          notes: '',
+          op_Id: null,
+          fireRedirect: false,
         }
-
+        this.handleFormChange = this.handleFormChange.bind(this);
+        this.handleFormSubmit = this.handleFormSubmit.bind(this);
+        this.removeFavorite = this.removeFavorite.bind(this);
     }
-
     componentDidMount () {
-        axios.get(`/api/puppy/${this.props.match.params.id}`)
-            .then(res => {
-                const favorite = res.data.data;
-
-                this.setState({
-                name: favorite.name,
-                image: favorite.photourl,
-                sex: favorite.sex,
-                altered: favorite.altered,
-                description: favorite.description,
-                opinion: favorite.op_id,
-                shelter: favorite.shelternumber,
-                notes: favorite.notes
-
-                })
-
-            })
-            .catch(err => console.log(err));
-
+      axios.all ([
+        axios.get(`/api/puppy/${this.props.match.params.id}`),
+        axios.get('/api/opinions')
+        ])
+      .then(axios.spread((puppy, opinions) => {
+        this.setState({
+        dataLoaded: true,
+        puppyData: puppy.data.data,
+        opinionsData: opinions.data.data,
+      })
+      console.log(this.state.puppyData);
+    }))
+    .catch(err => {
+      console.log('inside singlefavorite err', err);
+    })
+  }
+    handleFormChange(e) {
+      const name = e.target.name;
+      const value = e.target.value;
+      this.setState({
+        [name]: value,
+      })
     }
-
     handleFormSubmit(e) {
         e.preventDefault();
         axios
-            .put(`/route/${this.props.match.params.id}`, {
-                opinion: this.state.opinion,
-                notes: this.state.notes
+            .post(`/api/puppy/${this.props.match.params.id}`, {
+                id: this.props.match.params.id,
+                op_ID: this.state.op_Id,
+                notes: this.state.notes,
 
             })
             .then(res => {
                 this.setState({
-                    updateFavorite: res.data.id,
                     fireRedirect: true,
-
                 });
-
             })
 
             .catch(err => console.log(err));
 
     }
-
     removeFavorite() {
-        axios.delete(`/route/${this.props.match.params.id}`)
+        axios.delete(`/api/puppy/${this.props.match.params.id}`)
             .then(res => {
                 this.setState({
                     fireRedirect:true
@@ -77,44 +72,36 @@ class SingleFavorite extends Component {
             .catch(err => { console.log(err)})
 
     }
+    showSingleFavorite() {
+      return(
+              <div className="singlefave">
+                <img src={this.state.puppyData.photourl} />
+                <h2>{this.state.puppyData.name}</h2>
+                <form onSubmit={this.handleFormSubmit}>
+                    <select name="op_Id" onChange={this.handleFormChange}>
+                      <option value="1">Good Dog</option>
+                      <option value="2">Great Dog</option>
+                      <option value="3">Best Dog</option>
+                    </select>
 
+                    {/* within the same form add a label notes for a textarea for comments and details with Save/Submit button */}
+                    <textarea value={this.state.notes} name="notes" onChange={this.handleFormChange} />
+
+                    {/* Button for remove(delete from favorites table & data from {notes and 'rating' table}) */}
+                    <button>Submit</button>
+
+                    {/* Button for remove(delete from favorites table & data from {notes and 'rating' table}) */}
+                </form>
+                <button onClick={this.removeFavorite}>Delete</button>
+                {this.state.fireRedirect ? <Redirect push to={`/favorites`} /> : ''}
+              </div>
+        )
+    }
     render() {
 
         return (
             <div className="SingleFavorite">
-                // Render image file(s) of favorite dog
-                <img src={this.state.photourl} />
-                // Use <h2></h2> for name of puppy... ie. {this.props.id.name}
-                <h2>{this.state.name}</h2>
-                // Begin a from with a dropdown list which renders options for user to choose rating (*good, **great, ***greater interest...)
-
-                <form>
-
-                    <select>
-                        <optgroup>
-                            <option name="good" value="Good Dog"></option>
-                            <option name="great" value="Good Dog"></option>
-                            <option name="best" value="Good Dog"></option>
-
-                        </optgroup>
-
-                    </select>
-
-                    {/* within the same form add a label notes for a textarea for comments and details with Save/Submit button */}
-                    <textarea value={this.state.notes} name="notes">
-
-
-                    </textarea>
-
-                    {/* Button for remove(delete from favorites table & data from {notes and 'rating' table}) */}
-                    <button onClick={handleFormSubmit(event)}>Submit</button>
-
-                    {/* Button for remove(delete from favorites table & data from {notes and 'rating' table}) */}
-                    <button onClick={remoteFavorite()}>Delete</button>
-                    {this.state.fireRedirect ? <Redirect push to={`/favorites`} /> : ''}
-
-                </form>
-
+            { this.state.dataLoaded ? this.showSingleFavorite() : '' }
             </div>
 
         )

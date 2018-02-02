@@ -1,4 +1,4 @@
-//import react, axios, and favorite.js
+// import react, axios, and favorite.js
 import React, {Component} from 'react';
 import axios from 'axios';
 import Favorite from './Favorite';
@@ -17,17 +17,28 @@ class Favorites extends Component {
 //http://codeheaven.io/how-to-use-axios-as-your-http-client/
 //let favorites = puppy.data.concat(opinion.data);
   componentDidMount () {
-    axios.all ([
-      axios.get('/api/puppy'),
-      axios.get('/api/opinion')
-      ])
-    .then(axios.spread(function (puppy, opinion) {
+    // axios.all ([
+    //   axios.get('/api/puppy'),
+    //   axios.get('/api/opinions')
+    //   ])
+    // .then(axios.spread(function (puppy, opinion) {
+    //   this.setState({
+    //     dataLoaded: true,
+    //     favoritesData: puppy,
+    //     opinionsData: opinion
+    //   })
+    // }))
+    axios.get('/api/puppy')
+    .then(puppies => {
+      console.log(puppies);
       this.setState({
         dataLoaded: true,
-        favoritesData: puppy,
-        opinionsData: opinion
+        favoritesData: puppies.data.data,
       })
-    }))
+    })
+    .catch(err => {
+      console.log('inside favorites list err', err);
+    })
   }
 
 //shows each favorite on the favorites page
@@ -38,7 +49,9 @@ class Favorites extends Component {
           <Favorite key={favorite.id} favorite={favorite} />
           )
       })
-    }
+    } else return (
+      <h3>I'm sorry, we can't seem to find any dogs saved. Maybe you could add one?</h3>
+      )
   }
 
 //render function that calls the showFavorites function

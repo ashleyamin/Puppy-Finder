@@ -28,9 +28,6 @@ class SingleResult extends Component {
       photourl: this.props.puppy.media.photos.photo[2].$t,
       sex: this.props.puppy.sex.$t,
       description: this.props.puppy.description.$t,
-      // altered: this.props.puppy.altered,
-      // housetrained: this.props.puppy.housetrained,
-      // shelternumber: this.props.puppy.shelternumber,
       fireRedirect: false
     }
     this.addPuppy = this.addPuppy.bind(this)
@@ -43,16 +40,15 @@ class SingleResult extends Component {
       photourl: this.state.photourl,
       sex: this.state.sex,
       description: this.state.description,
-      // altered: this.props.puppy.altered,
-      // housetrained: this.props.puppy.housetrained,
-      // shelternumber: this.props.puppy.shelternumber,
-      // notes: this.props.puppy.notes,
    })
   .then(res => {
     console.log('successfully posted puppy :)', res)
-    //   this.setState({
-    //     fireRedirect: true
-    // })
+    let moveOn = confirm('You have successfully saved', this.state.name);
+    if (moveOn) {
+      this.setState({
+        fireRedirect: true
+      })
+    }
   }).catch(err => { console.log(err)})
 }
 
@@ -66,13 +62,9 @@ class SingleResult extends Component {
             <img src={this.state.photourl} alt={this.state.name}/>
           </div>
           <div className='info'>
-            <h4 className='breed'>{this.state.breed}</h4>
             <h1>My name is {this.state.name}</h1>
             <p>{this.state.description}</p>
             <p>Sex: {this.state.sex}</p>
-            {/* <p>{this.state.altered}</p>
-            <p>{this.state.housetrained}</p>
-            <p>{this.state.shelternumber}</p> */}
             <div className='links'>
               <button onClick={this.addPuppy}>Save {this.state.name}</button>
             </div>
@@ -88,6 +80,7 @@ class SingleResult extends Component {
      return(
        <div className="singleresult">
        {this.renderFetchPuppy()}
+       {this.state.fireRedirect ? <Redirect to='/favorites/' /> : ''}
        </div>
       )
    }

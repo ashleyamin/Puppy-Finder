@@ -85,10 +85,10 @@ class SingleFavorite extends Component {
                       <option value="2">Great Dog</option>
                       <option value="3">Best Dog</option>
                     </select>
-
+                    <br />
                     {/* within the same form add a label notes for a textarea for comments and details with Save/Submit button */}
                     <textarea value={this.state.notes} name="notes" onChange={this.handleFormChange} />
-
+                    <br />
                     {/* Button for remove(delete from favorites table & data from {notes and 'rating' table}) */}
                     <button>Submit</button>
 

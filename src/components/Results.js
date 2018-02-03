@@ -44,10 +44,11 @@ class Results extends Component {
   console.log(this.props.puppies);
    return this.props.puppies.map((puppy,index) => {
     return (
-      <div key={puppy.name.$t} className="testresult">
+      <div key={puppy.name.$t} className="dogs">
         <h3>{puppy.name.$t}</h3>
-        <img src={puppy.media.photos.photo[2].$t} />
         <button onClick={() => this.renderSingleResult(puppy)}>Meet {puppy.name.$t}</button>
+        <br />
+        <img src={puppy.media.photos.photo[2].$t} />
       </div>
     )
     })
@@ -63,7 +64,7 @@ class Results extends Component {
       console.log(this.state);
       return (
         <div className='results'>
-          {this.state.puppyList ? <div><h2>Look at all the cute puppies!</h2> {this.renderPuppies()}</div> : ''}
+          {this.state.puppyList ? <div className="wrapper">{this.renderPuppies()}</div> : ''}
           {this.state.meetPuppy ? <div><SingleResult puppy={this.state.puppyData} /><button onClick={this.backToSearch}>Back To Results</button></div> : ''}
         </div>
       )

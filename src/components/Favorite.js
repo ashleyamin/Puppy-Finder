@@ -8,7 +8,7 @@ const Favorite = (props) => {
       <div className='favorite'>
         <img src={props.favorite.photourl} />
         <h2>{props.favorite.name}</h2>
-        <Link to={`/favorites/${props.favorite.id}`}>See more about {props.favorite.name}</Link>
+        <Link to={`/favorites/${props.favorite.id}`}>See more!</Link>
       </div>
   )
 }

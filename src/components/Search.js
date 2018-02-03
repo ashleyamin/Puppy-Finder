@@ -23,61 +23,11 @@ class Search extends Component {
   renderSearch() {
     return (
       <div className="searchform">
-      <h1>Wanna find some puppies?</h1>
-      {/* Name and photo of each of the breeds you can search for */}
-        <div className="wrapper">
-          <div className="breeds">
-            <img src="https://i.imgur.com/KQpe37F.jpg" alt="Poodle" />
-            <p>Poodle</p>
-          </div>
-          <div className="breeds">
-            <img src="https://i.imgur.com/d37Hhlm.jpg" alt="Beagle" />
-            <p>Beagle</p>
-          </div>
-          <div className="breeds">
-            <img src="https://i.imgur.com/6cAaa3B.jpg" alt="Dalmatian" />
-            <p>Dalmatian</p>
-          </div>
-          <div className="breeds">
-            <img src="https://i.imgur.com/xINvtOj.jpg" alt="Miniature Schnauzer" />
-            <p>Miniature Schnauzer</p>
-          </div>
-          <div className="breeds">
-            <img src="https://i.imgur.com/BrXIenJ.jpg" alt="Husky" />
-            <p>Husky</p>
-          </div>
-          <div className="breeds">
-            <img src="https://i.imgur.com/M0joMkY.jpg" alt="Labrador Retriever" />
-            <p>Labrador Retriever</p>
-          </div>
-          <div className="breeds">
-            <img src="https://i.imgur.com/DOzkn6V.jpg" alt="Great Dane" />
-            <p>Great Dane</p>
-          </div>
-          <div className="breeds">
-            <img src="https://i.imgur.com/SPQQya4.jpg" alt="German Shepherd" />
-            <p>German Shepherd</p>
-          </div>
-          <div className="breeds">
-            <img src="https://i.imgur.com/zrCFXpK.jpg" alt="Chihuahua" />
-            <p>Chihuahua</p>
-          </div>
-          <div className="breeds">
-            <img src="https://i.imgur.com/AZzKaHV.jpg" alt="Golden Retriever" />
-            <p>Golden Retriever</p>
-          </div>
-          <div className="breeds">
-            <img src="https://i.imgur.com/VuRQ9LH.jpg" alt="Corgi" />
-            <p>Corgi</p>
-          </div>
-          <div className="breeds">
-            <img src="https://i.imgur.com/dGRsUSx.jpg" alt="Shiba Inu" />
-            <p>Shiba Inu</p>
-          </div>
-        </div>
-        {/* Form that submits the search parameters to the axios call in this.handleSubmit */}
+      <h1>Wanna Find Some Puppies?</h1>
+      {/* Form that submits the search parameters to the axios call in this.handleSubmit */}
         <form onSubmit={this.handleSubmit}>
           <label>Select a breed!</label>
+          <br />
           <select name="breed" value={this.state.breed} onChange={this.handleChange}>
             <option value="Poodle">Poodle</option>
             <option value="Beagle">Beagle</option>
@@ -101,6 +51,58 @@ class Search extends Component {
           />
           <input type="submit" value="Search for Puppers" />
         </form>
+      {/* Name and photo of each of the breeds you can search for */}
+        <div className="wrapper">
+          <div className="breeds">
+            <img src="https://i.imgur.com/KQpe37F.jpg" alt="Poodle" />
+            <p>Poodle</p>
+          </div>
+          <div className="breeds">
+            <img src="https://i.imgur.com/d37Hhlm.jpg" alt="Beagle" />
+            <p>Beagle</p>
+          </div>
+          <div className="breeds">
+            <img src="https://i.imgur.com/8P3e8k2.jpg" alt="Dalmatian" />
+            <p>Dalmatian</p>
+          </div>
+          <div className="breeds">
+            <img src="https://i.imgur.com/xINvtOj.jpg" alt="Miniature Schnauzer" />
+            <p>Miniature Schnauzer</p>
+          </div>
+          <div className="breeds">
+            <img src="https://i.imgur.com/BrXIenJ.jpg" alt="Husky" />
+            <p>Husky</p>
+          </div>
+          <div className="breeds">
+            <img src="https://i.imgur.com/M0joMkY.jpg" alt="Labrador Retriever" />
+            <p>Labrador Retriever</p>
+          </div>
+          <div className="breeds">
+            <img src="https://i.imgur.com/SNpLFSV.jpg" alt="Great Dane" />
+            <p>Great Dane</p>
+          </div>
+          <div className="breeds">
+            <img src="https://i.imgur.com/SPQQya4.jpg" alt="German Shepherd" />
+            <p>German Shepherd</p>
+          </div>
+          <div className="breeds">
+            <img src="https://i.imgur.com/zrCFXpK.jpg" alt="Chihuahua" />
+            <p>Chihuahua</p>
+          </div>
+          <div className="breeds">
+            <img src="https://i.imgur.com/AZzKaHV.jpg" alt="Golden Retriever" />
+            <p>Golden Retriever</p>
+          </div>
+          <div className="breeds">
+            <img src="https://i.imgur.com/VuRQ9LH.jpg" alt="Corgi" />
+            <p>Corgi</p>
+          </div>
+          <div className="breeds">
+            <img src="https://i.imgur.com/dGRsUSx.jpg" alt="Shiba Inu" />
+            <p>Shiba Inu</p>
+          </div>
+        </div>
+
       </div>
     )
   }
@@ -154,8 +156,10 @@ class Search extends Component {
             If there's no data from the API the search form will render.
             The button has an onCLick event to have a new search by resetting state */}
         {this.state.puppiesLoaded ?
-        <div><Results puppies={this.state.puppyData} />
-        <button onClick={this.newSearch}>New Search</button></div> :
+        <div>
+        <p onClick={this.newSearch} className="newsearch">New Search</p>
+        <Results puppies={this.state.puppyData} />
+        </div> :
         this.renderSearch() }
 
       </div>

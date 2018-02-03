@@ -5,7 +5,8 @@ const Header = () => {
 
         return (
             <div className="Header">
-                <h1 className="title">Puppyfinder</h1>
+              <header>
+                <h3 className="header-title">Puppyfinder</h3>
                 <nav>
                     <ul>
                         <li><Link to='/'>Search</Link></li>
@@ -13,6 +14,7 @@ const Header = () => {
                         <li><Link to='/About'>About</Link></li>
                     </ul>
                 </nav>
+              </header>
             </div>
         )
 

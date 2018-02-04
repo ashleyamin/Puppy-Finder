@@ -26,7 +26,8 @@ class Search extends Component {
       <h1>Wanna Find Some Puppies?</h1>
       {/* Form that submits the search parameters to the axios call in this.handleSubmit */}
         <form onSubmit={this.handleSubmit}>
-          <label>Select a breed!</label>
+          <label>Select a breed and enter your zipcode!</label>
+          <br />
           <br />
           <select name="breed" value={this.state.breed} onChange={this.handleChange}>
             <option value="Poodle">Poodle</option>
@@ -48,7 +49,10 @@ class Search extends Component {
             placeholder="Zip Code"
             value={this.state.zipcode}
             onChange={this.handleChange}
+            required
           />
+          <br />
+          <br />
           <input type="submit" value="Search for Puppers" />
         </form>
       {/* Name and photo of each of the breeds you can search for */}
@@ -156,7 +160,7 @@ class Search extends Component {
             If there's no data from the API the search form will render.
             The button has an onCLick event to have a new search by resetting state */}
         {this.state.puppiesLoaded ?
-        <div>
+        <div className="Results">
         <p onClick={this.newSearch} className="newsearch">New Search</p>
         <Results puppies={this.state.puppyData} />
         </div> :

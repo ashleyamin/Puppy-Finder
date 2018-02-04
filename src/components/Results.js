@@ -48,6 +48,7 @@ class Results extends Component {
         <h3>{puppy.name.$t}</h3>
         <button onClick={() => this.renderSingleResult(puppy)}>Meet {puppy.name.$t}</button>
         <br />
+        <br />
         <img src={puppy.media.photos.photo[2].$t} />
       </div>
     )

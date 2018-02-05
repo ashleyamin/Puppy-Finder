@@ -1,5 +1,3 @@
-\c puppy_dev
-
 DROP TABLE IF EXISTS puppies;
 
 CREATE TABLE puppies(

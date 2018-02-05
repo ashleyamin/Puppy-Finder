@@ -13,9 +13,9 @@ This schedule will be used to keep track of our progress throughout the week and
 |Day 2: Wed| Set up Database, Routes and 3rd Party API| Complete |
 |Day 3: Thurs| Basic Clickable Model | Complete |
 |Day 4: Fri| Working Prototype and Styling| Complete |
-|Day 5: Sat| Additional Styling and Deploy |
-|Day 6: Sun| App Completed/Slides |
-|Day 7: Mon| Project Presentations |
+|Day 5: Sat| Additional Styling and Deploy | Complete |
+|Day 6: Sun| App Completed/Slides | Complete |
+|Day 7: Mon| Project Presentations | Complete |
 
 # Trello Board
 
@@ -95,17 +95,11 @@ https://trello.com/b/dYEDr2VX
 
 ## Architecture Diagram
 
-image placeholder
-
-## Additional Libraries
-Use this section to list all supporting libraries and thier role in the project. 
+![Architecture Diagram](https://trello-attachments.s3.amazonaws.com/5a6ca2635159f923e03bf7bd/5a786cdf266bd3fc04bcc6ae/cee9a3847261fe3a8ed11a8ca4fb1c51/Image_uploaded_from_iOS_(15).jpg) 
 
 ## Code Snippet
 
 Use this section to include a brief code snippet of functionality that you are proud of an a brief description.  
-
-## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
 
 ## Issues and Resolutions
  Use this section to list of all major issues encountered and their resolution.

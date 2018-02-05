@@ -66,7 +66,7 @@ class SingleResult extends Component {
             <p>{this.state.description}</p>
             <p>Sex: {this.state.sex}</p>
             <div className='links'>
-              <button onClick={this.addPuppy}>Save {this.state.name}</button>
+              <button className="save-button" onClick={this.addPuppy}>Save {this.state.name}</button>
             </div>
           </div>
         </div>

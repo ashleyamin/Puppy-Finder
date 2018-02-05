@@ -51,7 +51,7 @@ class Favorites extends Component {
     console.log('STATE HAS BEEN CALCULATED TO BE', this.state)
     return(
       <div className='favorite-list'>
-        {this.showFavorites()}
+        <div className='wrapper'> {this.showFavorites()} </div>
       </div>
     )
   }

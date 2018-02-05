@@ -66,7 +66,7 @@ class Results extends Component {
       return (
         <div className='results'>
           {this.state.puppyList ? <div className="wrapper">{this.renderPuppies()}</div> : ''}
-          {this.state.meetPuppy ? <div><SingleResult puppy={this.state.puppyData} /><button onClick={this.backToSearch}>Back To Results</button></div> : ''}
+          {this.state.meetPuppy ? <div><SingleResult puppy={this.state.puppyData} /><button className='back-results-button' onClick={this.backToSearch}>Back To Results</button></div> : ''}
         </div>
       )
     }

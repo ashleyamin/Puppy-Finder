@@ -296,9 +296,8 @@ input[type=submit] {
 /* FAVORITE LIST STYLING */
 
 .favorite-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  grid-column: span 3;
+
   padding: 25px;
   font-family: 'Lato', sans-serif;
   flex-direction: row;
@@ -403,6 +402,16 @@ label {
   border-radius: 5%;
 }
 
+.links .save-button {
+  background-color: #73C998;
+  border: none;
+  color: #ffffff;
+  padding: 10px 18px;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5%;
+}
+
 .remove-button {
   background-color: #D3D3D3;
   border: none;
@@ -413,9 +422,17 @@ label {
   border-radius: 5%;
 }
 
-/*I think we should remove this 'back-button' */
-
 .back-button {
+    background-color: #73C998;
+    border: none;
+    color: #ffffff;
+    padding: 10px 18px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5%;
+}
+
+.back-results-button {
     background-color: #73C998;
     border: none;
     color: #ffffff;

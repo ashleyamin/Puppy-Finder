@@ -15432,7 +15432,7 @@ var Results = function (_Component) {
           _react2.default.createElement(_SingleResult2.default, { puppy: this.state.puppyData }),
           _react2.default.createElement(
             'button',
-            { onClick: this.backToSearch },
+            { className: 'back-results-button', onClick: this.backToSearch },
             'Back To Results'
           )
         ) : ''
@@ -15580,7 +15580,7 @@ var SingleResult = function (_Component) {
             { className: 'links' },
             _react2.default.createElement(
               'button',
-              { onClick: this.addPuppy },
+              { className: 'save-button', onClick: this.addPuppy },
               'Save ',
               this.state.name
             )
@@ -15707,7 +15707,13 @@ var Favorites = function (_Component) {
       return _react2.default.createElement(
         'div',
         { className: 'favorite-list' },
-        this.showFavorites()
+        _react2.default.createElement(
+          'div',
+          { className: 'wrapper' },
+          ' ',
+          this.showFavorites(),
+          ' '
+        )
       );
     }
   }]);

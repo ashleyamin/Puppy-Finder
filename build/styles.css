@@ -194,6 +194,7 @@ input[type=submit] {
     border: none;
     color: #ffffff;
     padding: 10px 18px;
+    margin: 0 auto;
     text-decoration: none;
     cursor: pointer;
     border-radius: 5%;
@@ -207,8 +208,13 @@ input[type=submit] {
 /* Div with Results from the Search, positioning content in flexbox */
 .results {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.results button {
+  cursor: pointer;
 }
 
 @media (max-width: 750px) {
@@ -218,8 +224,8 @@ input[type=submit] {
     border: 3px dashed #ffffff;
     padding: 5px;
     font-family: 'Arsenal', sans-serif;
-    width: 30px;
-    height: 10px;
+    max-width: 100px;
+    max-height: 125px;
   }
 }
 
@@ -230,6 +236,7 @@ input[type=submit] {
   padding: 0 5px 15px 5px;
   font-family: 'Arsenal', sans-serif;
   width: calc(100% * (1/4));
+  overflow: hidden;
 }
 
 .dogs button {
@@ -243,6 +250,7 @@ input[type=submit] {
     list-style-type: none;
     background-color: #FFF8F6;
     border-radius: 5%;
+    cursor: pointer;
     color: #FF9D87;
   }
 
@@ -251,6 +259,7 @@ input[type=submit] {
   }
 
 .dogs img {
+  margin: 0 auto;
   border: .5px solid #000000;
   width: 200px;
   height: 250px;
@@ -297,6 +306,23 @@ input[type=submit] {
   background-color: #FFC4AD;
 }
 
+.favorite-list h3 {
+  text-align: center;
+  margin: 0 auto;
+}
+
+@media (max-width: 750px) {
+  .favorite img {
+    margin: 15px auto;
+    background-color: #73C998;
+    border: 3px dashed #ffffff;
+    padding: 5px;
+    font-family: 'Arsenal', sans-serif;
+    max-width: 100px;
+    max-height: 125px;
+  }
+}
+
 .favorite {
   margin: 15px auto;
   background-color: #73C998;
@@ -304,6 +330,7 @@ input[type=submit] {
   padding: 0 5px 15px 5px;
   font-family: 'Arsenal', sans-serif;
   width: calc(100% * (1/4));
+  overflow: hidden;
 }
 
 .favorite a {

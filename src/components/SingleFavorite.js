@@ -79,6 +79,9 @@ class SingleFavorite extends Component {
                   <h2>{this.state.puppyData.name}</h2>
                   <p>{this.state.puppyData.description}</p>
                 </div>
+                <label>My Notes on {this.state.puppyData.name}</label>
+                <br />
+                <br />
                 <form onSubmit={this.handleFormSubmit}>
                     <select name="op_Id" value={this.state.op_Id} onChange={this.handleFormChange}>
                       <option value="1">Good Dog</option>
@@ -86,15 +89,20 @@ class SingleFavorite extends Component {
                       <option value="3">Best Dog</option>
                     </select>
                     <br />
+                    <br />
                     {/* within the same form add a label notes for a textarea for comments and details with Save/Submit button */}
                     <textarea value={this.state.notes} name="notes" onChange={this.handleFormChange} />
                     <br />
+                    <br />
                     {/* Button for remove(delete from favorites table & data from {notes and 'rating' table}) */}
-                    <button>Submit</button>
-
+                    <button className="save-button">Submit</button>
+                    <br />
+                    <br />
                     {/* Button for remove(delete from favorites table & data from {notes and 'rating' table}) */}
                 </form>
-                <button onClick={this.removeFavorite}>Remove From List</button>
+                <button className="remove-button" onClick={this.removeFavorite}>Remove From List</button>
+                <br />
+                <br />
                 {this.state.fireRedirect ? <Redirect push to={`/favorites`} /> : ''}
               </div>
         )
@@ -104,7 +112,7 @@ class SingleFavorite extends Component {
         return (
             <div className="SingleFavorite">
               { this.state.dataLoaded ? this.showSingleFavorite() : '' }
-              <button><Link to="/favorites">Back to Your Favorites</Link></button>
+              <Link className="back-button" to="/favorites">Back to Favorites</Link>
             </div>
 
         )

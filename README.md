@@ -24,11 +24,11 @@ https://trello.com/b/dYEDr2VX
 
 ## Priority Matrix
 
-![Time Priority Matrix](https://trello-attachments.s3.amazonaws.com/5a6ca2635159f923e03bf7bd/5a70d14fc8231d31403396e0/cefbb478b8ad7ee1375cd7ff427a02f9/Image_uploaded_from_iOS_(9).jpg) 
+![Time Priority Matrix](https://trello-attachments.s3.amazonaws.com/5a6ca2635159f923e03bf7bd/5a70d14fc8231d31403396e0/cefbb478b8ad7ee1375cd7ff427a02f9/Image_uploaded_from_iOS_(9).jpg)
 
-## MVP 
+## MVP
 
-1. Functional Components (Header, Footer, About) 
+1. Functional Components (Header, Footer, About)
 2. API 3rd Party (puppy API) and Components to render
 3. API (local database) and Components to render
 4. CRUD functionality
@@ -44,19 +44,19 @@ https://trello.com/b/dYEDr2VX
 ## Wireframes
 
 ### Search and Results
-![Search and Results](https://trello-attachments.s3.amazonaws.com/5a6ca2635159f923e03bf7bd/5a70e3f3e0e7939fd3e42caf/ec9933335fd7762047fec09499549855/Image_uploaded_from_iOS_(11).jpg) 
+![Search and Results](https://trello-attachments.s3.amazonaws.com/5a6ca2635159f923e03bf7bd/5a70e3f3e0e7939fd3e42caf/ec9933335fd7762047fec09499549855/Image_uploaded_from_iOS_(11).jpg)
 
 ### Single Result and Favorites
-![Single Result and Favorites](https://trello-attachments.s3.amazonaws.com/5a6ca2635159f923e03bf7bd/5a70e44eaa3e35293659e6a3/0f1b446b6ea7af74178d5fa4492c7781/Image_uploaded_from_iOS_(12).jpg) 
+![Single Result and Favorites](https://trello-attachments.s3.amazonaws.com/5a6ca2635159f923e03bf7bd/5a70e44eaa3e35293659e6a3/0f1b446b6ea7af74178d5fa4492c7781/Image_uploaded_from_iOS_(12).jpg)
 
 ### Favorites and Single Favorites
-![Favorites and Single Favorites](https://trello-attachments.s3.amazonaws.com/5a6ca2635159f923e03bf7bd/5a70e4a8443c23f268225993/6b554b2d77d92c7b74d07d25787655ae/Image_uploaded_from_iOS_(13).jpg) 
+![Favorites and Single Favorites](https://trello-attachments.s3.amazonaws.com/5a6ca2635159f923e03bf7bd/5a70e4a8443c23f268225993/6b554b2d77d92c7b74d07d25787655ae/Image_uploaded_from_iOS_(13).jpg)
 
 ### About
-![About](https://trello-attachments.s3.amazonaws.com/5a6ca2635159f923e03bf7bd/5a70d008e2861fc615c26338/ed51182eebd0c4ba38c79d247586ece2/Image_uploaded_from_iOS_(3).jpg) 
+![About](https://trello-attachments.s3.amazonaws.com/5a6ca2635159f923e03bf7bd/5a70d008e2861fc615c26338/ed51182eebd0c4ba38c79d247586ece2/Image_uploaded_from_iOS_(3).jpg)
 
 ## Table Structures
-    
+
 1. Puppies    
     CREATE TABLE puppies(
       id SERIAL PRIMARY KEY NOT NULL,
@@ -91,15 +91,33 @@ https://trello.com/b/dYEDr2VX
 
 ## React Routes
 
-![React Routes](https://trello-attachments.s3.amazonaws.com/5a6ca2635159f923e03bf7bd/5a70d12ec3c6b594e6594953/e8469eb784c0866bda8152b7a1ab333a/Image_uploaded_from_iOS_(6).jpg) 
+![React Routes](https://trello-attachments.s3.amazonaws.com/5a6ca2635159f923e03bf7bd/5a70d12ec3c6b594e6594953/e8469eb784c0866bda8152b7a1ab333a/Image_uploaded_from_iOS_(6).jpg)
 
 ## Architecture Diagram
 
-![Architecture Diagram](https://trello-attachments.s3.amazonaws.com/5a6ca2635159f923e03bf7bd/5a786cdf266bd3fc04bcc6ae/cee9a3847261fe3a8ed11a8ca4fb1c51/Image_uploaded_from_iOS_(15).jpg) 
+![Architecture Diagram](https://trello-attachments.s3.amazonaws.com/5a6ca2635159f923e03bf7bd/5a786cdf266bd3fc04bcc6ae/cee9a3847261fe3a8ed11a8ca4fb1c51/Image_uploaded_from_iOS_(15).jpg)
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of an a brief description.  
+![Code Snippet](https://trello-attachments.s3.amazonaws.com/5a6ca2635159f923e03bf7bd/5a78c3eaaabaf251de3e4b9d/f7d02c4673d1d1597e49a48e0205ff5f/Screen_Shot_2018-02-05_at_10.00.03_AM.png)
 
 ## Issues and Resolutions
- Use this section to list of all major issues encountered and their resolution.
+
+Issue: Pet Finder API data was very nested.
+Resolution: Extensively testing the JSON objects to see exactly what we needed to write in our controller to call the data we wanted; deciding to specify a position in the array for photourl, instead of photos size.
+
+Issue: PetFinder photourl's we're inside an array of different photo sizes, making it very difficult to identify a specific size for each data element and there are various image URLs for each pet. No good way to sort through them to find the largest, and some were too small to use in a web app.
+Resolution: Tested and discovered that the 3rd image listed was often the largest, and always big enough to be seen clearly on the big screen. Wrote the code to always use the third photo in each pet's photo array.
+
+Issue: Had difficulty figuring out when to pass data as props and when to make axios calls in React.
+Resolution: Tested to see what made the most sense when connecting the necessary components.
+
+## Instructions for Downloading Code
+Instructions for downloading the code and running it on localhost:
+
+To install this example on your computer, clone the repository and install dependencies
+1. Git clone
+2. Install dependencies, located in .json, npm install
+3. Run the migration files in terminal with these commands psql -f migrations/add-opinion-table.sql psql -f migrations/add-puppies-table.sql
+4. In one terminal window, enter the command npm start and in a separate one npm run build
+3. Open a web browser and run on localhost:3000
